@@ -6,7 +6,6 @@
 package clientewsvuelos;
 
 import entities.Lineas;
-import javax.swing.DefaultListModel;
 
 /**
  *
@@ -15,9 +14,8 @@ import javax.swing.DefaultListModel;
 public class Cliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrame
+     * Creates new form Cliente
      */
-    private DefaultListModel modelo=new DefaultListModel();
     public Cliente() {
         initComponents();
     }
@@ -31,139 +29,177 @@ public class Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrollVer = new javax.swing.JScrollPane();
-        ver = new javax.swing.JList<>();
-        Personas = new javax.swing.JLabel();
-        nPersonas = new javax.swing.JTextField();
-        lineas = new javax.swing.JButton();
-        aceptar = new javax.swing.JButton();
-        rutas = new javax.swing.JButton();
-        lineaRuta = new javax.swing.JButton();
-        selectorLineas = new javax.swing.JComboBox<>();
-        personas = new javax.swing.JTextField();
+        scrollTexto = new javax.swing.JScrollPane();
+        texto = new javax.swing.JTextArea();
+        lineas = new javax.swing.JComboBox<>();
+        aceptar1 = new javax.swing.JButton();
+        destinoBox = new javax.swing.JComboBox<>();
+        origenBox = new javax.swing.JComboBox<>();
+        aceptar2 = new javax.swing.JButton();
+        origen = new javax.swing.JLabel();
+        destino = new javax.swing.JLabel();
+        verLineas = new javax.swing.JButton();
+        pasajeros = new javax.swing.JLabel();
+        pasajerosField = new javax.swing.JTextField();
+        correo = new javax.swing.JLabel();
+        correoField = new javax.swing.JTextField();
+        Aceptar3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Venta de tickets");
         setResizable(false);
 
-        ver.setSize(new java.awt.Dimension(39, 85));
-        scrollVer.setViewportView(ver);
+        texto.setEditable(false);
+        texto.setColumns(20);
+        texto.setRows(5);
+        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
+        texto.setEnabled(false);
+        scrollTexto.setViewportView(texto);
 
-        Personas.setText("Personas: ");
+        lineas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        nPersonas.addActionListener(new java.awt.event.ActionListener() {
+        aceptar1.setText("Aceptar");
+
+        destinoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        origenBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        aceptar2.setText("Aceptar");
+
+        origen.setText("Origen:");
+
+        destino.setText("Destino:");
+
+        verLineas.setText("Ver líneas");
+        verLineas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nPersonasActionPerformed(evt);
+                verLineasActionPerformed(evt);
             }
         });
 
-        lineas.setText("Líneas");
-        lineas.addActionListener(new java.awt.event.ActionListener() {
+        pasajeros.setText("Pasajeros:");
+
+        pasajerosField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lineasActionPerformed(evt);
+                pasajerosFieldActionPerformed(evt);
             }
         });
 
-        aceptar.setText("Aceptar");
-        aceptar.addActionListener(new java.awt.event.ActionListener() {
+        correo.setText("Correo:");
+
+        correoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aceptarActionPerformed(evt);
+                correoFieldActionPerformed(evt);
             }
         });
 
-        rutas.setText("Rutas");
-        rutas.addActionListener(new java.awt.event.ActionListener() {
+        Aceptar3.setText("Aceptar");
+        Aceptar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rutasActionPerformed(evt);
+                Aceptar3ActionPerformed(evt);
             }
         });
-
-        lineaRuta.setText("Lineas y rutas");
-
-        selectorLineas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(verLineas)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lineas, 0, 105, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addComponent(origen)
+                        .addGap(27, 27, 27)
+                        .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(destino)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(aceptar1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(aceptar2)
+                            .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(selectorLineas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Personas)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(personas, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                            .addComponent(nPersonas))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(aceptar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lineas)
-                            .addComponent(rutas))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(correo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pasajeros)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(11, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Aceptar3)
+                        .addGap(43, 43, 43))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lineaRuta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                .addComponent(scrollVer, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(125, 125, 125)
+                .addComponent(scrollTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(lineas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rutas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lineaRuta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(scrollVer, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectorLineas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(personas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(scrollTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verLineas)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aceptar)
-                    .addComponent(Personas))
-                .addGap(38, 38, 38))
+                    .addComponent(lineas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(origen)
+                    .addComponent(pasajeros)
+                    .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(destino)
+                    .addComponent(correo)
+                    .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aceptar1)
+                    .addComponent(aceptar2)
+                    .addComponent(Aceptar3))
+                .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nPersonasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nPersonasActionPerformed
-
-    private void lineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineasActionPerformed
+    private void verLineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verLineasActionPerformed
         Lineas lineas=new Lineas();
         String[] lineasA=lineas.getAllLineas_XML().split(":");
+        String textoS="";
         for (int i = 0; i < lineasA.length; i++) {
-            modelo.addElement(lineasA[i]);
+            textoS+=lineasA[i]+"\n";
         }
-        ver.setModel(modelo);
-    }//GEN-LAST:event_lineasActionPerformed
+        texto.setText(textoS);
+        
+    }//GEN-LAST:event_verLineasActionPerformed
 
-    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+    private void pasajerosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasajerosFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_aceptarActionPerformed
+    }//GEN-LAST:event_pasajerosFieldActionPerformed
 
-    private void rutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutasActionPerformed
+    private void correoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rutasActionPerformed
+    }//GEN-LAST:event_correoFieldActionPerformed
+
+    private void Aceptar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Aceptar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Aceptar3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,9 +227,6 @@ public class Cliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -204,15 +237,20 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Personas;
-    private javax.swing.JButton aceptar;
-    private javax.swing.JButton lineaRuta;
-    private javax.swing.JButton lineas;
-    private javax.swing.JTextField nPersonas;
-    private javax.swing.JTextField personas;
-    private javax.swing.JButton rutas;
-    private javax.swing.JScrollPane scrollVer;
-    private javax.swing.JComboBox<String> selectorLineas;
-    private javax.swing.JList<String> ver;
+    private javax.swing.JButton Aceptar3;
+    private javax.swing.JButton aceptar1;
+    private javax.swing.JButton aceptar2;
+    private javax.swing.JLabel correo;
+    private javax.swing.JTextField correoField;
+    private javax.swing.JLabel destino;
+    private javax.swing.JComboBox<String> destinoBox;
+    private javax.swing.JComboBox<String> lineas;
+    private javax.swing.JLabel origen;
+    private javax.swing.JComboBox<String> origenBox;
+    private javax.swing.JLabel pasajeros;
+    private javax.swing.JTextField pasajerosField;
+    private javax.swing.JScrollPane scrollTexto;
+    private javax.swing.JTextArea texto;
+    private javax.swing.JButton verLineas;
     // End of variables declaration//GEN-END:variables
 }
