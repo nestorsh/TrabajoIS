@@ -52,8 +52,7 @@ public class Cliente extends javax.swing.JFrame {
         texto.setEditable(false);
         texto.setColumns(20);
         texto.setRows(5);
-        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
-        texto.setEnabled(false);
+        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         scrollTexto.setViewportView(texto);
 
         lineas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
