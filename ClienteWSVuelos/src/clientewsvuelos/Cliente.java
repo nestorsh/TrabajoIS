@@ -18,6 +18,9 @@ public class Cliente extends javax.swing.JFrame {
      */
     public Cliente() {
         initComponents();
+        getOrigin();
+        getDestination();
+        
     }
 
     /**
@@ -32,10 +35,8 @@ public class Cliente extends javax.swing.JFrame {
         scrollTexto = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
         lineas = new javax.swing.JComboBox<>();
-        aceptar1 = new javax.swing.JButton();
         destinoBox = new javax.swing.JComboBox<>();
         origenBox = new javax.swing.JComboBox<>();
-        aceptar2 = new javax.swing.JButton();
         origen = new javax.swing.JLabel();
         destino = new javax.swing.JLabel();
         verLineas = new javax.swing.JButton();
@@ -57,13 +58,17 @@ public class Cliente extends javax.swing.JFrame {
 
         lineas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        aceptar1.setText("Aceptar");
+        destinoBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destinoBoxActionPerformed(evt);
+            }
+        });
 
-        destinoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        origenBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        aceptar2.setText("Aceptar");
+        origenBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                origenBoxActionPerformed(evt);
+            }
+        });
 
         origen.setText("Origen:");
 
@@ -103,75 +108,67 @@ public class Cliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lineas, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(verLineas)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lineas, 0, 105, Short.MAX_VALUE)
-                        .addGap(31, 31, 31)
-                        .addComponent(origen)
-                        .addGap(27, 27, 27)
-                        .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(destino)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(aceptar1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(aceptar2)
-                            .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(pasajeros)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(correo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(pasajeros)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(origen)
+                                    .addComponent(destino))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(11, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Aceptar3)
-                        .addGap(43, 43, 43))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(scrollTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(scrollTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(Aceptar3)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(scrollTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(verLineas)
+                        .addGap(29, 29, 29)
+                        .addComponent(lineas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(origen)
+                            .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(destino))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pasajeros)
+                            .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(correo)
+                            .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(scrollTexto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verLineas)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lineas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(origenBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(origen)
-                    .addComponent(pasajeros)
-                    .addComponent(pasajerosField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(destinoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(destino)
-                    .addComponent(correo)
-                    .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aceptar1)
-                    .addComponent(aceptar2)
-                    .addComponent(Aceptar3))
-                .addGap(16, 16, 16))
+                .addComponent(Aceptar3)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,7 +176,7 @@ public class Cliente extends javax.swing.JFrame {
 
     private void verLineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verLineasActionPerformed
         Lineas lineas=new Lineas();
-        String[] lineasA=lineas.getAllLineas_XML().split(":");
+        String[] lineasA=lineas.getAllLineas_XML().split(";");
         String textoS="";
         for (int i = 0; i < lineasA.length; i++) {
             textoS+=lineasA[i]+"\n";
@@ -188,6 +185,23 @@ public class Cliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_verLineasActionPerformed
 
+    private void getOrigin(){
+        Lineas lineas=new Lineas();
+        String[] origen=lineas.getAllOrigin_XML().split(":");
+        origenBox.addItem("-");
+        for (int i = 0; i < origen.length; i++) {
+            origenBox.addItem(origen[i]);
+        }
+    }
+    
+    private void getDestination(){
+        Lineas lineas=new Lineas();
+        String[] destino=lineas.getAllDestination_XML().split(":");
+        destinoBox.addItem("-");
+        for (int i = 0; i < destino.length; i++) {
+            destinoBox.addItem(destino[i]);
+        }
+    }
     private void pasajerosFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasajerosFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pasajerosFieldActionPerformed
@@ -200,6 +214,33 @@ public class Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Aceptar3ActionPerformed
 
+    private void origenBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origenBoxActionPerformed
+        
+        String origen=(String)origenBox.getSelectedItem();
+        String destino= (String) destinoBox.getSelectedItem();
+        if(!origen.equals("-") && !destino.equals("-")){
+            texto.setText(busqueda());
+        }
+    }//GEN-LAST:event_origenBoxActionPerformed
+
+    private void destinoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoBoxActionPerformed
+
+        String origen=(String)origenBox.getSelectedItem();
+        String destino= (String) destinoBox.getSelectedItem();
+        if(!origen.equals("-") && !destino.equals("-")){
+            texto.setText(busqueda());
+        }
+    }//GEN-LAST:event_destinoBoxActionPerformed
+
+    private String busqueda(){
+        Lineas l=new Lineas();
+        String result="";
+        String[] lineasA=l.getLinea_XML((String)origenBox.getSelectedItem(), (String) destinoBox.getSelectedItem()).split(":");
+        for (int i = 0; i < lineasA.length; i++) {
+            result+=lineasA[i]+"\n";
+        }
+        return result;
+    }
     /**
      * @param args the command line arguments
      */
@@ -237,8 +278,6 @@ public class Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar3;
-    private javax.swing.JButton aceptar1;
-    private javax.swing.JButton aceptar2;
     private javax.swing.JLabel correo;
     private javax.swing.JTextField correoField;
     private javax.swing.JLabel destino;

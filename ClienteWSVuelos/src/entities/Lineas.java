@@ -14,7 +14,7 @@ import javax.ws.rs.client.WebTarget;
  * [lineas.lineas]<br>
  * USAGE:
  * <pre>
- *        Lineas client = new Lineas();
+ *        NewJerseyClient client = new NewJerseyClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -37,6 +37,18 @@ public class Lineas {
         WebTarget resource = webTarget;
         resource = resource.path("count");
         return resource.request(javax.ws.rs.core.MediaType.TEXT_PLAIN).get(String.class);
+    }
+
+    public String getAllOrigin_XML() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("allOrigin");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(String.class);
+    }
+
+    public String getAllOrigin_JSON() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("allOrigin");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public void edit_XML(Object requestEntity, String id) throws ClientErrorException {
@@ -83,12 +95,36 @@ public class Lineas {
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
+    public String getLinea_XML(String origin, String destination) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path(java.text.MessageFormat.format("getLinea/{0}/{1}", new Object[]{origin, destination}));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(String.class);
+    }
+
+    public String getLinea_JSON(String origin, String destination) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path(java.text.MessageFormat.format("getLinea/{0}/{1}", new Object[]{origin, destination}));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
+    }
+
     public void create_XML(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML));
     }
 
     public void create_JSON(Object requestEntity) throws ClientErrorException {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+    }
+
+    public String getAllDestination_XML() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("allDestination");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get(String.class);
+    }
+
+    public String getAllDestination_JSON() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("allDestination");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
     public <T> T findAll_XML(Class<T> responseType) throws ClientErrorException {
