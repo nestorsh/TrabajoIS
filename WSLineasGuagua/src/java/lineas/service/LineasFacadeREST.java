@@ -93,7 +93,58 @@ public class LineasFacadeREST extends AbstractFacade<Lineas> {
             List<Lineas> lineas=em.createQuery("SELECT l FROM Lineas l").getResultList();
             
             for (Lineas lineas1 : lineas) {
-                result+=lineas1.getName()+":";
+                result+=lineas1.getName()+": De "+lineas1.getOrigin()+" a "+lineas1.getDestination()+". ;";
+            }
+        }catch(NoResultException e){
+            
+        }
+        return result;
+    }
+    
+    @GET
+    @Path("/getLinea/{origin}/{destination}")
+    @Produces({"application/xml","application/json"})
+    public String getLinea(@PathParam("origin") String origin, @PathParam("destination") String destination){
+        String result="";
+        try{
+            List<Lineas> lineas=em.createQuery("SELECT l FROM Lineas l WHERE l.origin = :origin AND l.destination =:destination").setParameter("origin", origin)
+                    .setParameter("destination", destination).getResultList();
+            for (Lineas linea : lineas) {
+                result+=linea.getName()+":";
+            }
+        }catch(NoResultException e){
+            
+        }
+        return result;
+    }
+    
+    @GET
+    @Path("allOrigin")
+    @Produces({"application/xml","application/json"})
+    public String getAllOrigin(){
+        String result="";
+        try{
+            List<Lineas> lineas=em.createQuery("SELECT l FROM Lineas l").getResultList();
+            
+            for (Lineas lineas1 : lineas) {
+                result+=lineas1.getOrigin()+":";
+            }
+        }catch(NoResultException e){
+            
+        }
+        return result;
+    }
+    
+    @GET
+    @Path("allDestination")
+    @Produces({"application/xml","application/json"})
+    public String getAllDestination(){
+        String result="";
+        try{
+            List<Lineas> lineas=em.createQuery("SELECT l FROM Lineas l").getResultList();
+            
+            for (Lineas lineas1 : lineas) {
+                result+=lineas1.getDestination()+":";
             }
         }catch(NoResultException e){
             
